@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900');
+
+$fontFamily: 'Roboto', sans-serif;
+$defaultColor: #ff7b00;
+$lightColor: #565656;
+$darkColor: #3a3a3a;
+
+@mixin font($weight, $color, $size) {
+	font-weight: $weight;
+	color: $color;
+	font-size: $size;
+}
+
+@mixin shadow() {
+	box-shadow: 1px 2px 6px rgba(0, 0, 0, .3);
+}
+
+body {
+	font-family: $fontFamily;
+}
+
+h2 {
+	@include font(900, $defaultColor, 26pt)		
+}
+
+h3 {
+	@include font(300, $defaultColor, 26pt)
+}
+
+header {
+	width: 100%;
+	height: 50px;
+	position: relative;
+	top: 0;
+	background: $lightColor;
+}
+
+#user-bar {
+	width: 10%;
+	height: calc(100vh - 50px);
+	background: $darkColor;
+	position: relative;
+	float: left;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	margin: 0;
+	padding: 0;
+
+}
+
+.user-box {
+	max-width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	padding: 15px;
+	overflow: hidden;
+	.user-img {
+		max-width: 55px;
+		border-radius: 50%;
+		overflow: hidden;
+		float: left;
+		img {
+			width: 100%;
+		}
+	}
+
+	.user-name {
+		float: left;
+		max-width: 80px;
+		height: 55px;
+		box-sizing: border-box;
+		padding: 15px 5px 15px 20px;
+		@include font(300, #fff, 18px);		
+	}
+}
+
+nav {
+	ul {
+		list-style: none;
+		padding: 5px 0 5px 0;
+		li {
+			display: block;
+			text-indent: 15px;
+			border-top: 1px solid $lightColor;
+			a {
+				padding: 10px 0;
+				display: block;
+				transition: all .3s ease-in-out;
+				@include font(400, #fff, 16px);
+				&:hover {
+					text-decoration: none;
+					background: $defaultColor;
+					@include font(400, #fff, 16px);
+				}
+				
+			}
+			&:last-child {
+				border-bottom: 1px solid $lightColor;
+			}
+		}
+	}
+}
+
+.panel {
+	width: 90%;
+	height: calc(100vh - 50px);
+	overflow: hidden;
+	box-sizing: border-box;
+	float: left;
+	margin: 0;
+	padding: 50px 0;
+	background: #e2e2e0;
+}
+
+.box-info-dash {
+	width: 100%;
+	height: 200px;
+	background: #fff;
+	box-sizing: border-box;
+	padding: 15px 15px 20px 15px;
+	margin: 10px 0;
+	@include shadow();
+	text-align: center;
+	h2 {
+		margin-bottom: 20px;
+	}
+}
+
+.box-info-dash.graph {
+	min-height: 150px;
+	height: auto;
+}
